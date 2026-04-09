@@ -94,17 +94,7 @@ mpv av://v4l2:/dev/video50
 
 ## Running as a systemd service
 
-A unit file is provided at [camsplitter.service](camsplitter.service). It starts `camsplitter` on `/dev/video0` port `1234` and restarts it automatically on failure.
-
-```sh
-# Install for the current user
-cp camsplitter ~/camsplitter/camsplitter
-cp camsplitter.service ~/.config/systemd/user/
-systemctl --user daemon-reload
-systemctl --user enable --now camsplitter
-```
-
-The unit runs as UID 1000 with `AmbientCapabilities=CAP_SYS_MODULE` so it can load/unload `v4l2loopback` without full root.
+An example unit file is provided at [camsplitter.service](camsplitter.service). It is tailored for a specific setup and is not intended as a universal install guide — adapt it to your own service manager configuration as needed.
 
 ## Notes
 
