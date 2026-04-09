@@ -1,5 +1,13 @@
 # camsplitter
 
+> Used as part of my PiK1 setup. This is to allow MJPEG frame capture for snapshots with moonraker when using mediamtx with on demand ffmpeg transcoding. This allows me to take advantage of being able to explicitly specify MJPEG -> YUV -> Pi HW Encoder pipeline for maximum camera performance (Creality K1 cam), while still using live snapshots.
+>
+> MediaMTX's solution is to periodically capture a frame from a standard output, which means running the on demand transcoder basically 24/7 and having a pretty out of date snapshot (not great for timelapsing).
+>
+> This solution is much more lightweight, original quality, and realtime(ish).
+>
+> It's also very specifically tailored to my exact usage, and jankily vibecoded.
+
 A lightweight Linux daemon that reads a single MJPEG webcam and fans it out to two consumers simultaneously:
 
 - **v4l2loopback** — a virtual `/dev/videoN` device that any V4L2 application (OBS, ffmpeg, browsers, etc.) can open as a normal camera
