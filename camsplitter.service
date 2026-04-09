@@ -1,0 +1,11 @@
+[Unit]
+Description=camsplitter MJPEG fan-out daemon
+After=local-fs.target
+
+[Service]
+ExecStart=/opt/pik1/camsplitter -c /dev/video0 -p 1234
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
